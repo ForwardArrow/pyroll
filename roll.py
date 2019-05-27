@@ -1,29 +1,29 @@
 from random import randrange
 
-def RollDie(sides):
+def roll_die(sides):
     return randrange(sides)+1
 
-def RollDice(qty, sides):
+def roll_dice(qty, sides):
     rolls = []
     count = 0
     while count < qty:
-        rolls.append(RollDie(sides))
+        rolls.append(roll_die(sides))
         count += 1
     return rolls
 
-def DropLow(rolls):
+def drop_low(rolls):
     rolls.remove(min(rolls))
     return rolls
 
-def DropHigh(rolls):
+def drop_high(rolls):
     rolls.remove(max(rolls))
     return rolls
 
-def PublicRoll(qty, sides, drop='n'):
-    rolls = RollDice(qty, sides)
+def public_roll(qty, sides, drop='n'):
+    rolls = roll_dice(qty, sides)
     if drop == 'l':
-        return DropLow(rolls)
+        return drop_low(rolls)
     elif drop == 'h':
-        return DropHigh(rolls)
+        return drop_high(rolls)
     else:
         return rolls
